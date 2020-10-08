@@ -27,6 +27,12 @@ int main(int argc, char *argv[]) {
         if (argc > 1) {
             all_args.assign(argv + 1, argv + argc); //le premier argument est omis, c'est le nom de l'executable
         }
+
+        if (all_args.size() <= 1) {
+            cout << "pas assez d'arguments spécifiés" << endl;
+            return 1;
+        }
+
         extractArguments(message, key, operation, operationMode, iv, r, all_args);
         toLowerCase(operation); //mettre en minuscule au cas pour supporter min et maj
         toLowerCase(operationMode); //mettre en minuscule au cas pour supporter min et maj

@@ -103,12 +103,12 @@ int main(int argc, char *argv[]) {
 
                 checkInitVector(iv);
                 checkRArgument(r);
-                result += cfb.encrypt(message, key, iv, r);
+                result += ofb.encrypt(message, key, iv, r);
 
             } else if (operation == "dec") {
 
                 checkRArgument(r);
-                result += cfb.decrypt(message, key, r);
+                result += ofb.decrypt(message, key, r);
 
             } else {
                 cout << "L'opération entrée n'est pas valide." << endl;
@@ -126,11 +126,11 @@ int main(int argc, char *argv[]) {
             if (operation == "enc") {
 
                 checkInitVector(iv);
-                ctr.encrypt(message, key, iv);
+                result += ctr.encrypt(message, key, iv);
 
             } else if (operation == "dec") {
 
-                ctr.decrypt(message, key);
+                result += ctr.decrypt(message, key);
 
             } else {
                 cout << "L'opération entrée n'est pas valide." << endl;
